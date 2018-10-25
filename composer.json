@@ -1,0 +1,32 @@
+{
+  "name": "literal/DI",
+  "type": "library",
+  "description": "A PHP 7.1+ dependency injection container supporting element qualifiers and nesting",
+  "keywords": [
+    "Dependency Injection Container",
+    "DIC",
+    "IoC"
+  ],
+  "homepage": "https://github.com/literal/DI",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Stanislaus Imbt"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "psr/container": "^1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7",
+    "phake/phake": "^3"
+  },
+  "autoload": {
+    "psr-4": {
+      "literal\\DI\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
