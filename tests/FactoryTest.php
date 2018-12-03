@@ -4,7 +4,7 @@ namespace literal\DI;
 use PHPUnit\Framework\TestCase;
 use Phake;
 
-use dummyelements\{Element, ConstructorArgRecorder};
+use literal\DI\DummyElements\{Element, ConstructorArgRecorder};
 
 /**
  * @covers literal\DI\Factory
@@ -14,22 +14,11 @@ use dummyelements\{Element, ConstructorArgRecorder};
  */
 class FactoryTest extends TestCase
 {
-    const DUMMY_ELEMENT_CLASS_PATH = __DIR__ . '/dummy-elements';
-
     /** @var Factory */
     private $object;
 
     /** @var Container */
     private $containerMock;
-
-    public static function setUpBeforeClass()
-    {
-        // This is not pretty, but we need mock classes (as opposed to objects)
-        // for the Factory to create instances of, and I wanted to keep it simple
-        // and obvious, avoiding an autoloader...
-        require_once self::DUMMY_ELEMENT_CLASS_PATH . '/Element.php';
-        require_once self::DUMMY_ELEMENT_CLASS_PATH . '/ConstructorArgRecorder.php';
-    }
 
     protected function setUp()
     {
@@ -384,7 +373,7 @@ class FactoryTest extends TestCase
     {
         $this->object->setElementMap([
             'ElementAlias' => [
-                'file' => self::DUMMY_ELEMENT_CLASS_PATH . '/LegacyElement.php',
+                'file' => __DIR__ . '/DummyElements/LegacyElement.php',
                 'class' => 'LegacyElement'
             ]
         ]);
@@ -411,7 +400,7 @@ class FactoryTest extends TestCase
     {
         $this->object->setElementMap([
             'ElementAlias' => [
-                'file' => self::DUMMY_ELEMENT_CLASS_PATH . '/non-existent-file',
+                'file' => __DIR__ . '/non-existent-file',
                 'class' => 'LegacyElement'
             ]
         ]);

@@ -1,5 +1,5 @@
 <?php
-namespace dummyelements;
+namespace literal\DI\DummyElements;
 
 class ConstructorArgRecorder
 {
